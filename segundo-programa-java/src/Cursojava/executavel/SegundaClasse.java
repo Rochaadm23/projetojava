@@ -1,6 +1,7 @@
 package Cursojava.executavel;
 
 /* condições lógicas com IF e ELSE*/
+
 /*if (media >= 70) {
 System.out.println("Aluno aprovado com a media " + media);
 
@@ -53,7 +54,6 @@ System.out.println(saidaResultado);
 *
 */
 
-
 public class SegundaClasse {
 	public static void main(String[] args) {
 
@@ -62,9 +62,7 @@ public class SegundaClasse {
 		double nota3 = 50;
 		double nota4 = 9;
 
-		double media = 0;
-
-		media = (nota1 + nota2 + nota3 + nota4) / 4;
-				
+		double media = (nota1 + nota2 + nota3 + nota4) / 4;
+		System.out.println(media);
 	}
 }
