@@ -1,35 +1,93 @@
 package Cursojava.executavel;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.JOptionPane;
+
 import cursojava.classes.Aluno;
+import cursojava.classes.Disciplina;
 
 public class App {
 	public static void main(String[] args) throws Exception {
-		/* Objeto na memória */
-		/* new Aluno(); é uma Instancia, ((criação de Objeto)) */
-		/* aluno1 é uma referência para o objeto Aluno() */
-		Aluno aluno1 = new Aluno();/* João */
-		Aluno aluno2 = new Aluno();/* Pedro */
-		Aluno aluno3 = new Aluno();/* Fernando */
-		Aluno aluno4 = new Aluno("Maria");
+		List<Aluno> alunos = new ArrayList<Aluno>();
 
-		/* SET inserindo o dado no objeto */
-		aluno1.setNome("João da Silva");
-		aluno1.setIdade(30);
-		aluno1.setDataNascimento("28/11/1990");
-		aluno1.setRegistroGeral("588565566-2");
-		aluno1.setNumeroCpf("138.658.759-98");
-		aluno1.setNomeMae("Maria Silva");
-		aluno1.setNomePai("Getulio Silva");
-		aluno1.setDataMatricula("10/01/2021");
-		aluno1.setSerieMatriculado("6");
-		aluno1.setNomeEscola("Escola Municipal Rubens Berardo");
+		for (int qtd = 1; qtd <= 2; qtd++) {
+			/* Objeto na memória */
+			/* new Aluno(); é uma Instancia, ((criação de Objeto)) */
+			/* aluno1 é uma referência para o objeto Aluno() */
 
-		System.out.println("\tO nome do aluno é " + aluno1.getNome() + " e nasceu em " + aluno1.getDataNascimento()
-				+ "\n tem " + aluno1.getIdade() + " anos de idade, " + "possui RG nº " + aluno1.getRegistroGeral()
-				+ " e CPF nº, " + aluno1.getNumeroCpf() + "\n Filho de " + aluno1.getNomePai() + " e "
-				+ aluno1.getNomeMae() + ", foi matriculado no dia " + aluno1.getDataMatricula() + " \n na "
-				+ aluno1.getSerieMatriculado() + "º Série do ensino fundamental " + "na " + aluno1.getNomeEscola()
-				+ ".\n");
+			/* SET inserindo o dado no objeto */
+			/*---------------------------------------------------------------------------*/
+			String nome = JOptionPane.showInputDialog("Nome do aluno: " + qtd +" ?");
+			String idade = JOptionPane.showInputDialog("Idade: ");
+			/*
+			 * String dataNascimento = JOptionPane.showInputDialog(" Data de nascimento: ");
+			 * String rg = JOptionPane.showInputDialog("Registro geral: "); String cpf =
+			 * JOptionPane.showInputDialog("CPF: "); String mae =
+			 * JOptionPane.showInputDialog(" Nome da maẽ: "); String pai =
+			 * JOptionPane.showInputDialog(" Nome do pai: "); String matricula =
+			 * JOptionPane.showInputDialog("Data da matricula: "); String serie =
+			 * JOptionPane.showInputDialog("Qual série: "); String escola =
+			 * JOptionPane.showInputDialog(" Nome da escola: ");
+			 * 
+			 * /
+			 ***************************************************************/
+
+			Aluno aluno1 = new Aluno();/* João */
+			/* Dados pessoais do Aluno */
+			aluno1.setNome(nome);
+			aluno1.setIdade(Integer.valueOf(idade));
+			/*
+			 * aluno1.setDataNascimento(dataNascimento); aluno1.setRegistroGeral(rg);
+			 * aluno1.setNumeroCpf(cpf); aluno1.setNomeMae(mae); aluno1.setNomePai(pai); /*
+			 * Dados escolares / aluno1.setDataMatricula(matricula);
+			 * aluno1.setSerieMatriculado(serie); aluno1.setNomeEscola(escola); /* Insere
+			 * dados nos objetos Aluno e Disciplina
+			 */
+
+			/* for percorre as 4 disciplinas e as 4 notas */
+
+			for (int pos = 1; pos <= 4; pos++) {
+				String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina " + pos + " ?");
+				String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina " + pos + " ?");
+				Disciplina disciplina = new Disciplina();
+
+				disciplina.setDisciplina(nomeDisciplina);
+				disciplina.setNota(Double.valueOf(notaDisciplina));
+
+				aluno1.getDisciplina().add(disciplina);
+
+			}
+
+			int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina? ");
+
+			if (escolha == 0) {/* OPÇÂO SIM é Zero */
+
+				int continuarRemover = 0;
+				int pos = 1;
+				while (continuarRemover == 0) {
+					String disciplinaRemover = JOptionPane.showInputDialog("Qual a disciplina 1, 2, 3, 4 ?");
+					aluno1.getDisciplina().remove(Integer.valueOf(disciplinaRemover).intValue() - pos);
+					pos++;
+					continuarRemover = JOptionPane.showConfirmDialog(null, "Continuar a remover? ");
+
+				}
+
+			}
+			alunos.add(aluno1);
+		}
+		
+		for (Aluno aluno : alunos) {
+			
+			JOptionPane.showMessageDialog(null, aluno);
+			JOptionPane.showMessageDialog(null, aluno.getDisciplina());
+			JOptionPane.showMessageDialog(null, aluno.getMediaNota());
+			JOptionPane.showMessageDialog(null, aluno.getAlunoAprovado2());
+			
+
+			
+		}
 		
 		System.out.println(
 				"---------------------------------------------------------------------------------------------------");
@@ -37,47 +95,6 @@ public class App {
 				"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 		System.out.println(
 				"---------------------------------------------------------------------------------------------------\n");
-		
-		aluno2.setNome("Pedro da Silva");
-		aluno2.setIdade(30);
-		aluno2.setDataNascimento("28/11/1990");
-		aluno2.setRegistroGeral("588565566-2");
-		aluno2.setNumeroCpf("138.658.759-98");
-		aluno2.setNomeMae("Maria Silva");
-		aluno2.setNomePai("Getulio Silva");
-		aluno2.setDataMatricula("10/01/2021");
-		aluno2.setSerieMatriculado("6");
-		aluno2.setNomeEscola("Escola Municipal Rubens Berardo");
 
-		System.out.println("\tO nome do aluno é " + aluno2.getNome() + " e nasceu em " + aluno2.getDataNascimento()
-				+ "\n tem " + aluno2.getIdade() + " anos de idade, " + "possui RG nº " + aluno2.getRegistroGeral()
-				+ " e CPF nº, " + aluno2.getNumeroCpf() + "\n Filho de " + aluno2.getNomePai() + " e "
-				+ aluno2.getNomeMae() + ", foi matriculado no dia " + aluno2.getDataMatricula() + " \n na "
-				+ aluno2.getSerieMatriculado() + "º Série do ensino fundamental " + "na " + aluno2.getNomeEscola()
-				+ ".\n");
-		
-		System.out.println(
-				"---------------------------------------------------------------------------------------------------");
-		System.out.println(
-				"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-		System.out.println(
-				"---------------------------------------------------------------------------------------------------\n");
-		aluno3.setNome("Fernando Rocha");
-		aluno3.setIdade(30);
-		aluno3.setDataNascimento("28/11/1990");
-		aluno3.setRegistroGeral("588565566-2");
-		aluno3.setNumeroCpf("138.658.759-98");
-		aluno3.setNomeMae("Maria Silva");
-		aluno3.setNomePai("Getulio Silva");
-		aluno3.setDataMatricula("10/01/2021");
-		aluno3.setSerieMatriculado("6");
-		aluno3.setNomeEscola("Escola Municipal Rubens Berardo");
-
-		System.out.println("\tO nome do aluno é " + aluno3.getNome() + " e nasceu em " + aluno3.getDataNascimento()
-				+ "\n tem " + aluno3.getIdade() + " anos de idade, " + "possui RG nº " + aluno3.getRegistroGeral()
-				+ " e CPF nº, " + aluno3.getNumeroCpf() + "\n Filho de " + aluno3.getNomePai() + " e "
-				+ aluno3.getNomeMae() + ", foi matriculado no dia " + aluno3.getDataMatricula() + " \n na "
-				+ aluno3.getSerieMatriculado() + "º Série do ensino fundamental " + "na " + aluno3.getNomeEscola()
-				+ ".\n");
 	}
 }
