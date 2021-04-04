@@ -1,4 +1,4 @@
-package Cursojava.executavel;
+package cursojava.executavel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ public class App {
 		List<Aluno> alunos = new ArrayList<Aluno>();
 
 		/* Quantidade de aluno a ser inserido na lista */
-		for (int qtd = 1; qtd <= 1; qtd++) {
+		for (int qtd = 1; qtd <= 5; qtd++) {
 			/* Objeto na memória */
 			/* new Aluno(); é uma Instancia, ((criação de Objeto)) */
 			/* aluno1 é uma referência para o objeto Aluno() */
@@ -50,16 +50,7 @@ public class App {
 
 			/* for percorre as 4 disciplinas e as 4 notas */
 
-			for (int pos = 1; pos <= 1; pos++) {
-				String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina " + pos + " ?");
-				String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina " + pos + " ?");
-				Disciplina disciplina = new Disciplina();
-
-				disciplina.setDisciplina(nomeDisciplina);
-				disciplina.setNota(Double.valueOf(notaDisciplina));
-				aluno1.getDisciplina().add(disciplina);
-
-			}
+	
 
 			int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina? ");
 

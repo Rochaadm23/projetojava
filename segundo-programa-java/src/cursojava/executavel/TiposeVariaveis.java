@@ -1,4 +1,4 @@
-package Cursojava.executavel;
+package cursojava.executavel;
 /** 
  * TIPO DE DADOS:
  * byte tipoByte; 

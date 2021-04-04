@@ -1,4 +1,4 @@
-package Cursojava.executavel;
+package cursojava.executavel;
 
 public class EstruturaWhile {
 	public static void main(String[] args) {

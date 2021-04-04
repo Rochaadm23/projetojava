@@ -1,4 +1,4 @@
-package Cursojava.executavel;
+package cursojava.executavel;
 
 /* condições lógicas com IF e ELSE*/
 

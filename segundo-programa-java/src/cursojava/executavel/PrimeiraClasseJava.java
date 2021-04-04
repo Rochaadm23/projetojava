@@ -48,7 +48,7 @@
         
         */
 
-package Cursojava.executavel;
+package cursojava.executavel;
 
 public class PrimeiraClasseJava {
 
