@@ -71,7 +71,7 @@ public class App {
 				aluno1.getDisciplina().add(disciplina);
 
 			}
-
+			/*vERIFICA SE DESEJA REMOVER ALGUMA MATÉRIA*/
 			int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina? ");
 
 			if (escolha == 0) {/* OPÇÂO SIM é Zero */
