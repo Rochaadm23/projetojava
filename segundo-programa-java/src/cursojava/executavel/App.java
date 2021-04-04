@@ -13,6 +13,10 @@ import cursojava.constantes.StatusAluno;
 public class App {
 	public static void main(String[] args) throws Exception {
 
+		String login = JOptionPane.showInputDialog("Informe o login ");
+		String senha = JOptionPane.showInputDialog("Informe o login ");
+		
+		if(login.equalsIgnoreCase("admin") && senha.equals("admin")) {
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		/*
 		 * É Uma lista qentro dela temos uma chave que identifica uma lista ou uma
@@ -127,6 +131,6 @@ public class App {
 
 		System.out.println(
 				"---------------------------------------------------------------------------------------------------\n");
-
+		}
 	}
 }
