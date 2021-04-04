@@ -10,16 +10,18 @@ import cursojava.classes.Disciplina;
 
 public class App {
 	public static void main(String[] args) throws Exception {
+
 		List<Aluno> alunos = new ArrayList<Aluno>();
 
-		for (int qtd = 1; qtd <= 2; qtd++) {
+		/* Quantidade de aluno a ser inserido na lista */
+		for (int qtd = 1; qtd <= 1; qtd++) {
 			/* Objeto na memória */
 			/* new Aluno(); é uma Instancia, ((criação de Objeto)) */
 			/* aluno1 é uma referência para o objeto Aluno() */
 
 			/* SET inserindo o dado no objeto */
 			/*---------------------------------------------------------------------------*/
-			String nome = JOptionPane.showInputDialog("Nome do aluno: " + qtd +" ?");
+			String nome = JOptionPane.showInputDialog("Nome do aluno: " + qtd + " ?");
 			String idade = JOptionPane.showInputDialog("Idade: ");
 			/*
 			 * String dataNascimento = JOptionPane.showInputDialog(" Data de nascimento: ");
@@ -48,14 +50,13 @@ public class App {
 
 			/* for percorre as 4 disciplinas e as 4 notas */
 
-			for (int pos = 1; pos <= 4; pos++) {
+			for (int pos = 1; pos <= 1; pos++) {
 				String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina " + pos + " ?");
 				String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina " + pos + " ?");
 				Disciplina disciplina = new Disciplina();
 
 				disciplina.setDisciplina(nomeDisciplina);
 				disciplina.setNota(Double.valueOf(notaDisciplina));
-
 				aluno1.getDisciplina().add(disciplina);
 
 			}
@@ -77,18 +78,41 @@ public class App {
 			}
 			alunos.add(aluno1);
 		}
-		
-		for (Aluno aluno : alunos) {
-			
-			JOptionPane.showMessageDialog(null, aluno);
-			JOptionPane.showMessageDialog(null, aluno.getDisciplina());
-			JOptionPane.showMessageDialog(null, aluno.getMediaNota());
-			JOptionPane.showMessageDialog(null, aluno.getAlunoAprovado2());
-			
 
-			
+		for (int pos = 0; pos < alunos.size(); pos++) {
+
+			Aluno aluno = alunos.get(pos);
+			/* trocar usuário */
+
+			if (aluno.getNome().equalsIgnoreCase("alex")) {
+				Aluno trocar = new Aluno();
+				trocar.setNome("Aluno foi trocado");
+				/* trocar a disciplina */
+				Disciplina disciplina = new Disciplina();
+				disciplina.setDisciplina("Matemática");
+				disciplina.setNota(96);
+				/* adiciona a nova disciplina na lista */
+
+				trocar.getDisciplina().add(disciplina);
+				/* Inserindo os na posição */
+				alunos.set(pos, trocar);
+				/* recuperando o objeto aluno com os novos dados de dentro da lista */
+				aluno = alunos.get(pos);
+
+			}
+
+			System.out.println("Aluno = " + aluno.getNome());
+			System.out.println("MEdia do aluno = " + aluno.getMediaNota());
+			System.out.println("Resultado = " + aluno.getAlunoAprovado2());
+
+			for (int posd = 0; posd < aluno.getDisciplina().size(); posd++) {
+
+				Disciplina disc = aluno.getDisciplina().get(posd);
+				System.out.println("Materia: " + disc.getDisciplina() + " Nota: " + disc.getNota());
+			}
+
 		}
-		
+
 		System.out.println(
 				"---------------------------------------------------------------------------------------------------");
 		System.out.println(

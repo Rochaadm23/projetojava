@@ -18,7 +18,6 @@ public class Aluno {
 
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
-	
 	public void setDisciplina(List<Disciplina> disciplina) {
 		this.disciplinas = disciplina;
 	}
@@ -127,11 +126,11 @@ public class Aluno {
 
 	/* Método que retorna a média do aluno */
 	public double getMediaNota() {
-		
+
 		double somaNotas = 0.0;
-		
+
 		for (Disciplina disciplina : disciplinas) {
-			 somaNotas += disciplina.getNota();
+			somaNotas += disciplina.getNota();
 		}
 		return somaNotas / disciplinas.size();
 	}
