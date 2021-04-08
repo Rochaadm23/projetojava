@@ -51,6 +51,9 @@ public class App {
 			/* Dados pessoais do Aluno */
 			aluno1.setNome(nome);
 			aluno1.setIdade(Integer.valueOf(idade));
+			
+			
+			
 			/*
 			 * aluno1.setDataNascimento(dataNascimento); aluno1.setRegistroGeral(rg);
 			 * aluno1.setNumeroCpf(cpf); aluno1.setNomeMae(mae); aluno1.setNomePai(pai); /*

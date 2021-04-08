@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cursojava.constantes.StatusAluno;
-
+/*Classe filha de pessoa*/
 public class Aluno extends Pessoa {
 	/* Atributos da classe aluno */
 
@@ -197,4 +197,17 @@ public class Aluno extends Pessoa {
 		return true;
 	}
 
+		
+	@Override /*Identifica método sobrescrito*/
+	public boolean pessoaMaiorIdade() {
+		// TODO Auto-generated method stub
+		return super.pessoaMaiorIdade();
+	}
+
+	@Override
+	public double salario() {
+		// TODO Auto-generated method stub
+		return 1500.90;
+	}
+	
 }

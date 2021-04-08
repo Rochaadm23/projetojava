@@ -1,6 +1,8 @@
 package cursojava.classes;
 
-public class Pessoa {
+/*Classe pai ou a classe master ou a super class(Atributos comuns a todos os objetos )*/
+/*abstract é usado para impedir que uma classe seja instanciada, neste caso a classe pai e seja utilizada somente as classes filhas*/
+public abstract class Pessoa {
 	protected String nome;
 	protected int idade;
 	protected String dataNascimento;
@@ -9,6 +11,9 @@ public class Pessoa {
 	protected String nomeMae;
 	protected String nomePai;
 
+	/*Método abstrato é que fica na classe pai é obrigatório para as classes filhas*/
+	public abstract double salario();
+	
 	public String getNome() {
 		return nome;
 	}
@@ -63,6 +68,12 @@ public class Pessoa {
 
 	public void setNomePai(String nomePai) {
 		this.nomePai = nomePai;
+	}
+
+	/* Retorna True,caso tenha 18 anos ou mais. */
+	public boolean pessoaMaiorIdade() {
+		return idade >= 18;
+
 	}
 
 }
