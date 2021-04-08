@@ -20,10 +20,13 @@ public class App {
 		
 		/* Modificação para implemetanção de interface */
 
-		if (new Secretario().autenticar(senha, senha)) {/* Diretamente com o objeto */
+		PermitirAcesso permitirAcesso = new Secretario(login, senha );
+		
+		
+		if (permitirAcesso.autenticar()) {/* Diretamente com o objeto */
 			List<Aluno> alunos = new ArrayList<Aluno>();
 			/*
-			 * É Uma lista qentro dela temos uma chave que identifica uma lista ou uma
+			 * É Uma lista que dentro dela temos uma chave que identifica uma lista ou uma
 			 * sequencia de valores
 			 */
 			HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
