@@ -7,23 +7,24 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
+import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
-import cursojava.classes.Secretario;
+import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
-import cursojava.interfaces.PermitirAcesso;
 
 public class App {
 	public static void main(String[] args) throws Exception {
 
 		String login = JOptionPane.showInputDialog("Informe o login ");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
-		
-		/* Modificação para implemetanção de interface */
 
-		PermitirAcesso permitirAcesso = new Secretario(login, senha );
-		
-		
-		if (permitirAcesso.autenticar()) {/* Diretamente com o objeto */
+		/* Modificação para implemetanção de interface */
+		/*PermitirAcesso permitirAcesso = new Secretario(login, senha);*/
+
+		if (new FuncaoAutenticacao(new Diretor(login,senha)).autenticar()) {/*
+																	 * Vou travar o contrato para autorizar somente quem
+																	 * realmente tem o contrato 100% legítimo
+																	 */
 			List<Aluno> alunos = new ArrayList<Aluno>();
 			/*
 			 * É Uma lista que dentro dela temos uma chave que identifica uma lista ou uma
