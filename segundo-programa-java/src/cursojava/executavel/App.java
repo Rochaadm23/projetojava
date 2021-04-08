@@ -8,15 +8,24 @@ import javax.swing.JOptionPane;
 
 import cursojava.classes.Aluno;
 import cursojava.classes.Disciplina;
+import cursojava.classes.Secretario;
 import cursojava.constantes.StatusAluno;
 
 public class App {
 	public static void main(String[] args) throws Exception {
 
 		String login = JOptionPane.showInputDialog("Informe o login ");
-		String senha = JOptionPane.showInputDialog("Informe o login ");
+		String senha = JOptionPane.showInputDialog("Informe a senha");
+		/*Modificação para implemetanção de interface*/
+		Secretario secretario = new Secretario();
+		secretario.setLogin(login);
+		secretario.setSenha(senha);
 		
-		if(login.equalsIgnoreCase("admin") && senha.equals("admin")) {
+		
+		
+		
+		
+		if(secretario.autenticar()) {/*Diretamente com o objeto*/
 		List<Aluno> alunos = new ArrayList<Aluno>();
 		/*
 		 * É Uma lista qentro dela temos uma chave que identifica uma lista ou uma
@@ -134,6 +143,8 @@ public class App {
 
 		System.out.println(
 				"---------------------------------------------------------------------------------------------------\n");
+		}else {
+			JOptionPane.showMessageDialog(null, "Acesso não permitido");
 		}
 	}
 }
