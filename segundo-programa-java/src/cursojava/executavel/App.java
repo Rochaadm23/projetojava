@@ -13,16 +13,15 @@ import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
+import cursojava.excecao.ExcecaoProcessarNota;
 
 public class App {
 	public static void main(String[] args) throws Exception {
 
 		try {
-			
-			File file = new File("/home/rocha/arquivo.txt");
-			Scanner scanner = new Scanner(file);
-			
-			
+
+			lerArquivo();
+
 			String login = JOptionPane.showInputDialog("Informe o login ");
 			String senha = JOptionPane.showInputDialog("Informe a senha");
 
@@ -176,9 +175,24 @@ public class App {
 
 			JOptionPane.showMessageDialog(null, "Um num pointer exception " + e.getClass());
 
-		} catch (Exception e) {
+		} catch (ExcecaoProcessarNota e) {
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro inesperado " + e.getClass().getName());
+			JOptionPane.showMessageDialog(null, "Erro da excecao customizada " + e.getClass().getName());
+		} finally {
+			/*
+			 * Sempre é executado ocorrendo erros ou não Sempre é usado quando se precisa
+			 * executar um processo acontecendo erro ou não no sistema
+			 */
+			JOptionPane.showMessageDialog(null, "Obrigado!! você está aprendendo");
+		}
+
+	}
+	public static void lerArquivo() throws ExcecaoProcessarNota{
+		try {
+			File file = new File("arquivo.txt");
+			Scanner scanner = new Scanner(file);
+		} catch (Exception e) {
+			throw new ExcecaoProcessarNota(e.getMessage());
 		}
 
 	}
