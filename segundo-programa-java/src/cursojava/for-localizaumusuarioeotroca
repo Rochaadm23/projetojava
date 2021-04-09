@@ -31,3 +31,26 @@ for (int pos = 0; pos < alunos.size(); pos++) {
 			}
 
 		}
+		
+		
+		try{
+		/*Código de regea de negócio*/
+		
+		}catch (Exception e){
+		
+			e.printStackTrace();/*IMPRIME A PILHA DE ERRO NO CONSOLE*/
+	 	}
+	 	
+	 	
+	 	ERROS MAIS COMUNS NO JAVA
+	 	1- NullPointerException:
+	 	Quer dizer que existe uma variável ou referência nula.
+	 	2- NumberFormatException:
+	 	Tentando converter uma string em um número mas a string está vazia.
+	 	3- FileNotFoundException
+	 	Tentando carregar um arquivo mas não foi encontrado no caminho informado.
+	 	4- ClassCastException:
+	 	Tentando converter um objeto B para A sendo que não são do mesmo tipo ou sem relação.
+	 	5- ClassNotFoundException:
+	 	Tentando carregar uma classe sendo que não foi encontrada.
+	 	

@@ -14,7 +14,8 @@ import cursojava.constantes.StatusAluno;
 
 public class App {
 	public static void main(String[] args) throws Exception {
-
+		
+		try {
 		String login = JOptionPane.showInputDialog("Informe o login ");
 		String senha = JOptionPane.showInputDialog("Informe a senha");
 
@@ -145,5 +146,10 @@ public class App {
 		} else {
 			JOptionPane.showMessageDialog(null, "Acesso não permitido LOGIN ou SENHA inválidos");
 		}
+		}catch (Exception e) {
+			e.printStackTrace();/*Impprime erro no console Java*/
+			JOptionPane.showMessageDialog(null, "Acesso cancelado");
+		}
+	
 	}
 }
