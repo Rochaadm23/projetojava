@@ -1,8 +1,10 @@
 package cursojava.executavel;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
@@ -16,7 +18,11 @@ public class App {
 	public static void main(String[] args) throws Exception {
 
 		try {
-
+			
+			File file = new File("/home/rocha/arquivo.txt");
+			Scanner scanner = new Scanner(file);
+			
+			
 			String login = JOptionPane.showInputDialog("Informe o login ");
 			String senha = JOptionPane.showInputDialog("Informe a senha");
 
@@ -172,6 +178,7 @@ public class App {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro inesperado " + e.getClass().getName());
 		}
 
 	}
