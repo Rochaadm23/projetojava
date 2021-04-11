@@ -1,6 +1,7 @@
 package cursojava.executavel;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +14,6 @@ import cursojava.classes.Diretor;
 import cursojava.classes.Disciplina;
 import cursojava.classesauxiliares.FuncaoAutenticacao;
 import cursojava.constantes.StatusAluno;
-import cursojava.excecao.ExcecaoProcessarNota;
 
 public class App {
 	public static void main(String[] args) throws Exception {
@@ -126,7 +126,7 @@ public class App {
 
 				System.out.println(
 						"-----------------------------------Lista dos aprovados---------------------------------");
-				for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
+ 				for (Aluno aluno : maps.get(StatusAluno.APROVADO)) {
 					System.out.println(" Aluno(a) " + aluno.getNome() + " está " + aluno.getAlunoAprovado2()
 							+ " Com média de " + aluno.getMediaNota());
 
@@ -154,12 +154,13 @@ public class App {
 				JOptionPane.showMessageDialog(null, "Acesso não permitido LOGIN ou SENHA inválidos");
 			}
 
-		} catch (NumberFormatException e) {
+		} catch (Exception e) {
 
 			StringBuilder saida = new StringBuilder();
 
 			e.printStackTrace();/* Imprime erro no console Java */
 			System.out.println("Mensagem: " + e.getMessage());
+			
 			for (int pos = 0; pos <= e.getStackTrace().length; pos++) {
 
 				saida.append("\n Classe de classe " + e.getStackTrace()[pos].getClassName());
@@ -169,15 +170,9 @@ public class App {
 
 			}
 
-			JOptionPane.showMessageDialog(null, "Erro de conversão " + saida.toString());
+			JOptionPane.showMessageDialog(null, "Erro " + saida.toString());
+			
 
-		} catch (NullPointerException e) {
-
-			JOptionPane.showMessageDialog(null, "Um num pointer exception " + e.getClass());
-
-		} catch (ExcecaoProcessarNota e) {
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro da excecao customizada " + e.getClass().getName());
 		} finally {
 			/*
 			 * Sempre é executado ocorrendo erros ou não Sempre é usado quando se precisa
@@ -187,13 +182,11 @@ public class App {
 		}
 
 	}
-	public static void lerArquivo() throws ExcecaoProcessarNota{
-		try {
-			File file = new File("arquivo.txt");
-			Scanner scanner = new Scanner(file);
-		} catch (Exception e) {
-			throw new ExcecaoProcessarNota(e.getMessage());
-		}
 
+	public static void lerArquivo() throws FileNotFoundException {
+
+		File file = new File("/home/rocha/arquivo.txt");
+		Scanner scanner = new Scanner(file);
 	}
+
 }
