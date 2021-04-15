@@ -54,3 +54,29 @@ for (int pos = 0; pos < alunos.size(); pos++) {
 	 	5- ClassNotFoundException:
 	 	Tentando carregar uma classe sendo que não foi encontrada.
 	 	
+	 	
+	 	/----------------------------------------------------------------//
+	 		Encontrando um valor maio ou meno em uma array de disciplinas.
+	 	System.out.println("Nome do aluno é " + aluno.getNome() + " Inscrito no curso " + aluno.getNomeEscola());
+		for (Disciplina d : aluno.getDisciplina()) {
+			System.out.println("---------- Disciplina do Aluno ----------\n");
+			System.out.println("Discplina: " + d.getDisciplina());
+			System.out.println("As notas da disciplina são: ");
+			
+			double notaMaxima = 0;
+			for (int i = 0; i < d.getNota().length; i++) {
+				System.out.println("Nota do bimestre " + (i + 1) + " é igual " + d.getNota()[i]);
+				if(i == 0 ) {
+					notaMaxima = d.getNota()[i];
+				}else {
+					if (d.getNota()[i] < notaMaxima) {
+						notaMaxima = d.getNota()[i];
+						
+					}
+				}
+				
+			}
+			System.out.println("\nA menor nota da Disciplina = " + d.getDisciplina() + " e de valor : " + notaMaxima);
+		}
+		
+	 	

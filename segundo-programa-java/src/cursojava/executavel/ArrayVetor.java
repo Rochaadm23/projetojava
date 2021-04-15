@@ -26,28 +26,24 @@ public class ArrayVetor {
 
 		aluno.getDisciplina().add(disciplina2);
 
-		System.out.println("Nome do aluno é " + aluno.getNome() + " Inscrito no curso " + aluno.getNomeEscola());
-		for (Disciplina d : aluno.getDisciplina()) {
-			System.out.println("---------- Disciplina do Aluno ----------\n");
-			System.out.println("Discplina: " + d.getDisciplina());
-			System.out.println("As notas da disciplina são: ");
-			
-			double notaMaxima = 0;
-			for (int i = 0; i < d.getNota().length; i++) {
-				System.out.println("Nota do bimestre " + (i + 1) + " é igual " + d.getNota()[i]);
-				if(i == 0 ) {
-					notaMaxima = d.getNota()[i];
-				}else {
-					if (d.getNota()[i] < notaMaxima) {
-						notaMaxima = d.getNota()[i];
-						
-					}
+		Aluno[] arrayAlunos = new Aluno[1];
+
+		arrayAlunos[0] = aluno;
+
+		for (int i = 0; i < arrayAlunos.length; i++) {
+
+			System.out.println("Nome do aluno é " + arrayAlunos[i].getNome());
+
+			for (Disciplina d : arrayAlunos[i].getDisciplina()) {
+				System.out.println("Disciplina " + d.getDisciplina());
+
+				for (int j = 0; j < d.getNota().length; j++) {
+					System.out.println("A nota numero " + (j + 1) + d.getNota()[j]);
 				}
-				
+
 			}
-			System.out.println("\nA menor nota da Disciplina = " + d.getDisciplina() + " e de valor : " + notaMaxima);
+
 		}
-		
 
 	}
 }
