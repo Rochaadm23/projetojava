@@ -31,10 +31,23 @@ public class ArrayVetor {
 			System.out.println("---------- Disciplina do Aluno ----------\n");
 			System.out.println("Discplina: " + d.getDisciplina());
 			System.out.println("As notas da disciplina são: ");
+			
+			double notaMaxima = 0;
 			for (int i = 0; i < d.getNota().length; i++) {
 				System.out.println("Nota do bimestre " + (i + 1) + " é igual " + d.getNota()[i]);
+				if(i == 0 ) {
+					notaMaxima = d.getNota()[i];
+				}else {
+					if (d.getNota()[i] > notaMaxima) {
+						notaMaxima = d.getNota()[i];
+						
+					}
+				}
+				
 			}
+			System.out.println("\nA maior nota da Disciplina = " + d.getDisciplina() + " e de valor : " + notaMaxima);
 		}
+		
 
 	}
 }
