@@ -38,14 +38,14 @@ public class ArrayVetor {
 				if(i == 0 ) {
 					notaMaxima = d.getNota()[i];
 				}else {
-					if (d.getNota()[i] > notaMaxima) {
+					if (d.getNota()[i] < notaMaxima) {
 						notaMaxima = d.getNota()[i];
 						
 					}
 				}
 				
 			}
-			System.out.println("\nA maior nota da Disciplina = " + d.getDisciplina() + " e de valor : " + notaMaxima);
+			System.out.println("\nA menor nota da Disciplina = " + d.getDisciplina() + " e de valor : " + notaMaxima);
 		}
 		
 
