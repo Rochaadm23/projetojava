@@ -31,13 +31,8 @@ public class TelaTimeThread extends JDialog {
 	private JButton jButton2 = new JButton("Stop");
 
 	private ImplementacaoFilaThread fila = new ImplementacaoFilaThread();
-	/*PRIMEIRA THREAD*/
-	
-	
-	
-	
-	
-	
+	/* PRIMEIRA THREAD */
+
 	public TelaTimeThread() {
 		/* Executa o que estiver dentro no momento da abertura ou execução */
 
@@ -59,7 +54,7 @@ public class TelaTimeThread extends JDialog {
 
 		mostraTempo.setPreferredSize(new Dimension(200, 25));
 		gridBagConstraints.gridy++;
-		
+
 		jpanel.add(mostraTempo, gridBagConstraints);
 
 		descricaoHora2.setPreferredSize(new Dimension(200, 25));
@@ -68,7 +63,7 @@ public class TelaTimeThread extends JDialog {
 
 		mostraTempo2.setPreferredSize(new Dimension(200, 25));
 		gridBagConstraints.gridy++;
-		
+
 		jpanel.add(mostraTempo2, gridBagConstraints);
 
 		/* Retornando o espaço para um */
@@ -82,44 +77,38 @@ public class TelaTimeThread extends JDialog {
 		jButton2.setPreferredSize(new Dimension(92, 25));
 		gridBagConstraints.gridx++;
 		jpanel.add(jButton2, gridBagConstraints);
-		
+
 		/*--------------------THREAD1----------------------*/
 		jButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ObjetoFilaThread filaThread = new ObjetoFilaThread();
-				filaThread.setNome(mostraTempo.getText());
-				filaThread.setEmail(mostraTempo2.getText());
-				
-				
-				fila.add(filaThread);
+				if (fila == null) {
+					fila = new ImplementacaoFilaThread();
+					fila.start();
+				}
+				for (int qtd = 0; qtd < 100; qtd++) {/*Simulando 100 envios*/
+					ObjetoFilaThread filaThread = new ObjetoFilaThread();
+					filaThread.setNome(mostraTempo.getText());
+					filaThread.setEmail(mostraTempo2.getText() + " - " + qtd);
+
+					fila.add(filaThread);
+				}
 			}
 		});
-		
-		
-		
-		
+
 		jButton2.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// EXECUTA O CLIC DO BOTÃO STOP
-				
-				
-	
-				
+				fila.stop();
+				fila = null;
 			}
 		});
-		
-		
-		
-		
-	
-		
-		
+
 		fila.start();
-		
+
 		add(jpanel, BorderLayout.WEST);
 		/* Sempre será o ultimo comando */
 		setVisible(true);/* Torna a tela vísivel para o usuário */

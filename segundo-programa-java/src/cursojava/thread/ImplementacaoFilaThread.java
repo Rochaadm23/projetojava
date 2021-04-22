@@ -50,7 +50,7 @@ public class ImplementacaoFilaThread extends Thread {
 
 			}
 			try {
-				Thread.sleep(1000);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) { /* Precessou toda a lista dá um tempo para limpeza de memória */
 
 				e.printStackTrace();
